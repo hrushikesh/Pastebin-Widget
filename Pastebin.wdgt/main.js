@@ -64,7 +64,8 @@ $.post("http://pastebin.com/api/api_post.php",
 },
 function(data) {
  if(data.substr(0, 4) == "http") {
-   $("#url_link").text(data).attr("href", "javascript:widget.openURL('" + data + "');");
+     var rawLink = data.substr(0,20) + "raw.php?i=" + data.substr(20);
+     $("#url_link_raw").text(rawLink).attr("href", "javascript:widget.openURL('" + rawLink +  "');");
    $("#url").fadeIn(200);
    
    $("#paste_text").val('');
